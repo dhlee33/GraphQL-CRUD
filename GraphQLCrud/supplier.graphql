@@ -1,0 +1,8 @@
+query supplier_list($id_list: [ID!]) {
+    supplier_list(id_list: $id_list) {
+        item_list {
+            id
+            name
+        }
+    }
+}

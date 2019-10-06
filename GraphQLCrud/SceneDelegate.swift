@@ -7,10 +7,39 @@
 //
 
 import UIKit
+import RxSwift
+import RxFlow
+import Swinject
+import SwinjectAutoregistration
+import Apollo
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var coordinator = FlowCoordinator()
+    var disposeBag = DisposeBag()
+    lazy var apolloClient: ApolloClient = {
+        let transport = HTTPNetworkTransport(
+          url: URL(string: "http://test.recruit.croquis.com:28500/")!,
+          delegate: self
+        )
+        return ApolloClient(networkTransport: transport)
+    }()
+    
+    lazy var container: Container = {
+        let container = Container()
+        container.register(ApolloClient.self) { _ in
+            return self.apolloClient
+        }
+        container.autoregister(ProductUseCase.self, initializer: DefaultProductUseCase.init)
+        container.autoregister(SupplierUseCase.self, initializer: DefaultSupplierUseCase.init)
+        container.autoregister(ProductListViewReactor.self, initializer: ProductListViewReactor.init)
+        container.autoregister(CreateProductViewReactor.self, initializer: CreateProductViewReactor.init)
+        container.register(ProductDetailViewReactor.self) { (r, product: Product) in
+            return ProductDetailViewReactor(productUseCase: r~>, product: product)
+        }
+        return container
+    } ()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,6 +47,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let window = self.window else { return }
+
+        self.coordinator.rx.willNavigate.subscribe(onNext: { (flow, step) in
+            print ("will navigate to flow=\(flow) and step=\(step)")
+        }).disposed(by: disposeBag)
+
+        self.coordinator.rx.didNavigate.subscribe(onNext: { (flow, step) in
+            print ("did navigate to flow=\(flow) and step=\(step)")
+        }).disposed(by: disposeBag)
+
+        let productFlow = ProductFlow(container: container)
+
+        Flows.whenReady(flow1: productFlow) { root in
+            window.rootViewController = root
+            window.makeKeyAndVisible()
+        }
+
+        self.coordinator.coordinate(flow: productFlow, with: OneStepper(withSingleStep: ProductStep.showProductList))
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,5 +97,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+
+extension SceneDelegate: HTTPNetworkTransportPreflightDelegate {
+    func networkTransport(_ networkTransport: HTTPNetworkTransport, shouldSend request: URLRequest) -> Bool {
+        true
+    }
+    
+    
+    func networkTransport(_ networkTransport: HTTPNetworkTransport,
+                          willSend request: inout URLRequest) {
+        var headers = request.allHTTPHeaderFields ?? [String: String]()
+        headers["Croquis-UUID"] = "00000000-0000-0000-0000-012000000000"
+        request.allHTTPHeaderFields = headers
+    }
 }
 

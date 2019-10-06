@@ -1,0 +1,52 @@
+query product_list($id_list: [ID!]) {
+    product_list(id_list: $id_list) {
+        item_list {
+            id
+            name_ko
+            name_en
+            supplier {
+                id
+                name
+            }
+            price
+        }
+    }
+}
+
+query product($id: ID) {
+    product(id: $id) {
+        name_ko
+        name_en
+        description_ko
+        description_en
+        price
+        supplier {
+            name
+        }
+    }
+}
+
+mutation createProduct($input: CreateProductInput!) {
+    createProduct(input: $input) {
+        id
+    }
+}
+
+mutation deleteProduct($input: DeleteProductInput!) {
+    deleteProduct(input: $input) {
+        id
+    }
+}
+
+mutation updateProduct($input: UpdateProductInput!) {
+    updateProduct(input: $input) {
+        name_ko
+        name_en
+        description_ko
+        description_en
+        price
+        supplier {
+            name
+        }
+    }
+}

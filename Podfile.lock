@@ -1,0 +1,60 @@
+PODS:
+  - Apollo (0.16.1):
+    - Apollo/Core (= 0.16.1)
+  - Apollo/Core (0.16.1)
+  - IQKeyboardManager (6.5.0)
+  - ReactorKit (2.0.1):
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxFlow (2.4.0):
+    - RxCocoa (>= 5.0.0)
+    - RxSwift (>= 5.0.0)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - SnapKit (5.0.1)
+  - Swinject (2.7.1)
+  - SwinjectAutoregistration (2.6.1):
+    - Swinject (~> 2.6)
+
+DEPENDENCIES:
+  - Apollo
+  - IQKeyboardManager
+  - ReactorKit
+  - RxCocoa
+  - RxFlow
+  - RxSwift
+  - SnapKit
+  - Swinject
+  - SwinjectAutoregistration
+
+SPEC REPOS:
+  trunk:
+    - Apollo
+    - IQKeyboardManager
+    - ReactorKit
+    - RxCocoa
+    - RxFlow
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - Swinject
+    - SwinjectAutoregistration
+
+SPEC CHECKSUMS:
+  Apollo: 2b08fca48664d25e1dc8635f0ad128483ccba43b
+  IQKeyboardManager: 700e5155d6a292383b54e8678aec769e14fc78fc
+  ReactorKit: a63c5e11e0fd32d59d672e54178b0ed2876b764b
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxFlow: d8342d7ba30f78f509f84cf1d801fbd540406870
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SwinjectAutoregistration: d0de7e48db3601b8b130f2f84e5a8399e0224135
+
+PODFILE CHECKSUM: f604e9a2bd6fd6cd9429362209a17f671b52a1a9
+
+COCOAPODS: 1.8.1
