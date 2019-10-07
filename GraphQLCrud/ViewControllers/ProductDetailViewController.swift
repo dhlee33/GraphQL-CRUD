@@ -23,6 +23,7 @@ class ProductDetailViewController: BaseViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFieldPrice.keyboardType = .numberPad
         reactor?.action.onNext(.fetchProduct)
     }
     
