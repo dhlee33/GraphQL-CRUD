@@ -44,7 +44,7 @@ container.resolve(ProductListViewReactor.self)
 ```
 
 ### UseCases
-- UseCases handle usecases of entity(model) using service layer
+- UseCases handle usecases of entity(model)
 ```swift
 final class DefaultProductUseCase: ProductUseCase {
     ...
