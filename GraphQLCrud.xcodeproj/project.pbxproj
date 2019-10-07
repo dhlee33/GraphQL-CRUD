@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6434C060234B794C003BE603 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6434C05F234B794C003BE603 /* README.md */; };
 		645FDFFF2348695500BC7A88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645FDFFE2348695500BC7A88 /* AppDelegate.swift */; };
 		645FE0012348695500BC7A88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645FE0002348695500BC7A88 /* SceneDelegate.swift */; };
 		645FE0032348695500BC7A88 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645FE0022348695500BC7A88 /* ProductListViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		2748D8596A8FCA08EB98DD3A /* Pods-GraphQLCrudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLCrudTests.debug.xcconfig"; path = "Target Support Files/Pods-GraphQLCrudTests/Pods-GraphQLCrudTests.debug.xcconfig"; sourceTree = "<group>"; };
 		608AAFD333582098831D4A2B /* Pods_GraphQLCrudTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQLCrudTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6434C05F234B794C003BE603 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		645FDFFB2348695500BC7A88 /* GraphQLCrud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLCrud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645FDFFE2348695500BC7A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		645FE0002348695500BC7A88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		645FDFFD2348695500BC7A88 /* GraphQLCrud */ = {
 			isa = PBXGroup;
 			children = (
+				6434C05F234B794C003BE603 /* README.md */,
 				645FE09F2349A93900BC7A88 /* Flows */,
 				645FE09323499D5700BC7A88 /* ViewControllers */,
 				645FE09223499D0100BC7A88 /* Views */,
@@ -310,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6434C060234B794C003BE603 /* README.md in Resources */,
 				645FE00B2348695600BC7A88 /* LaunchScreen.storyboard in Resources */,
 				645FE08823488CAA00BC7A88 /* product.graphql in Resources */,
 				645FE0082348695600BC7A88 /* Assets.xcassets in Resources */,
